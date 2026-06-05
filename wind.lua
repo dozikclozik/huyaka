@@ -1,5 +1,14 @@
-return function() -- line: 1
-	print("RUNNING MODULE")
+local ClientApi = {}
+local ModuleStarted = false
+
+local function StartModule()
+    if ModuleStarted then return end
+    ModuleStarted = true
+end
+
+function ClientApi.StartModule()
+    StartModule()
+end
 
 	local function expNeeded(p1) -- line: 3
 		return math.ceil(p1 ^ 1.95 + p1 * 8) + 41
@@ -2065,4 +2074,5 @@ return function() -- line: 1
 		v114 = v119
 		timestamp2 = tick()
 	end
-end
+
+return ClientApi
